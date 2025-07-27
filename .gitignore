@@ -1,0 +1,33 @@
+# Node
+node_modules/
+pnpm-lock.yaml
+
+# Build
+/dist
+/build
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+
+# Misc
+*.swp
+*.swo
+
+# Coverage
+coverage/
+
+# Others
+public/vite.svg

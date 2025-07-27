@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+/* globals.css or main.css */
+@import "tailwindcss";
+
+/* Container settings */
+@container {
+  center: true,
+  padding: 2rem,
+  screens: {
+    '2xl': '1400px',
+  }
+}
+
+/* Theme colors */
+@theme {
+  --color-primary-500: #877EFF;
+  --color-primary-600: #5D5FEF;
+  --color-secondary-500: #FFB620;
+  --color-off-white: #D0DFFF;
+  --color-red: #FF5A5A;
+  --color-dark-1: #000000;
+  --color-dark-2: #09090A;
+  --color-dark-3: #101012;
+  --color-dark-4: #1F1F22;
+  --color-light-1: #FFFFFF;
+  --color-light-2: #EFEFEF;
+  --color-light-3: #7878A3;
+  --color-light-4: #5C5C7B;
+  --screen-xs: 480px;
+  --width-420: 420px;
+  --width-465: 465px;
+  --font-inter: 'Inter', sans-serif;
+}
+
+/* Keyframes for accordion animations */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+/* Custom animations */
+@animation {
+  accordion-down: 0.2s ease-out;
+  accordion-up: 0.2s ease-out;
+}
+
+/* Plugins */
+/* @plugin tailwindcss-animate; */
+
+
+@layer base {
+  * {
+    @apply box-border list-none p-0 m-0 scroll-smooth;
+  }
+
+  body {
+    @apply bg-dark-1 text-white min-h-screen font-inter;
+  }
+}
+
+@layer utilities {
+
+
+@layer components {
+  /* SHADCN COMPONENTS */
+  /* Form */
+  .shad-form_label {
+    @apply text-white !important;
+  }
+
+  .shad-form_message {
+    @apply text-red !important;
+  }
+
+  .shad-input {
+    @apply h-12 bg-dark-4 border-none placeholder:text-light-4 focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+  }
+
+  .shad-textarea {
+    @apply h-36 bg-dark-3 rounded-xl border-none focus-visible:ring-1 focus-visible:ring-offset-1 ring-offset-light-3 !important;
+  }
+
+  /* Button */
+  .shad-button_primary {
+    @apply bg-primary-500 hover:bg-primary-500 text-light-1 flex gap-2 !important;
+  }
+
+  .shad-button_dark_4 {
+    @apply h-12 bg-dark-4 px-5 text-light-1 flex gap-2 !important;
+  }
+
+  .shad-button_ghost {
+    @apply flex gap-4 items-center justify-start hover:bg-transparent hover:text-white !important;
+  }
+}
