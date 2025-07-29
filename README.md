@@ -22,7 +22,7 @@ AnimalGram is an Instagram-inspired social media web application for sharing pho
 
 1. Clone the repository:
   ```bash
-  git clone https://github.com/yourusername/animalgram.git
+  git clone https://github.com/devanshp1/animalgram.git
   ```
 2. Install dependencies:
   ```bash
