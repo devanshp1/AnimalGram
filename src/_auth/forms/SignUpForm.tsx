@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { SignUpValidationSchema } from "../../lib/validation";
+import { createUser } from "@/lib/appwrite/api";
 
 const SignUpForm = () => {
     const form = useForm<z.infer<typeof SignUpValidationSchema>>({
@@ -25,8 +26,10 @@ const SignUpForm = () => {
         }
     });
 
-    const onSubmit = (data: z.infer<typeof SignUpValidationSchema>) => {
-        console.log(data);
+    const onSubmit = async (data: z.infer<typeof SignUpValidationSchema>) => {
+        const newUser = await createUser(data);
+
+        console.log(newUser);
     };
 
     return (
