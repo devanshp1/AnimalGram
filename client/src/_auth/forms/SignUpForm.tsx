@@ -13,7 +13,7 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { SignUpValidationSchema } from "../../lib/validation";
-import { createUser } from "@/lib/appwrite/api";
+import { useSignUp } from "@/hooks/useSignUp";
 
 const SignUpForm = () => {
     const form = useForm<z.infer<typeof SignUpValidationSchema>>({
@@ -26,10 +26,17 @@ const SignUpForm = () => {
         }
     });
 
-    const onSubmit = async (data: z.infer<typeof SignUpValidationSchema>) => {
-        const newUser = await createUser(data);
+    const { signUp } = useSignUp();
 
-        console.log(newUser);
+    const onSubmit = async (data: z.infer<typeof SignUpValidationSchema>) => {
+        try {
+            const result = await signUp(data);
+            console.log("User created:", result);
+            // show toast, navigate, etc.
+        } catch (error: any) {
+            console.error("Signup failed:", error.message);
+            // optional: setError or showToast
+        }
     };
 
     return (

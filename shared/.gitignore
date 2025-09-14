@@ -1,0 +1,3 @@
+# Shared types ignores
+.DS_Store
+*.log

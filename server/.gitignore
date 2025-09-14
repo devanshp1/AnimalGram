@@ -1,0 +1,10 @@
+# Server (backend) ignores
+node_modules/
+dist/
+build/
+.env
+*.log
+.DS_Store
+npm-debug.log*
+pnpm-debug.log*
+pnpm-lock.yaml

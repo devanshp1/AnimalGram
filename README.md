@@ -1,43 +1,46 @@
 # AnimalGram
 
-AnimalGram is an Instagram-inspired social media web application for sharing photos and stories of real animals. Users can upload animal photos, follow other animal profiles, like posts, and comment in real-time. The platform is dedicated to celebrating pets, wildlife, and all creatures—no human impersonation accounts allowed!
+AnimalGram is a modular fullstack social media app for animals, built with Vite (React) frontend and Node.js/Express/Mongoose backend.
 
 ## Features
-
 - User authentication (sign up, login, logout)
 - Animal photo upload and sharing
-- Like and comment on animal posts
-- Follow/unfollow animal profiles
+- Like and comment on posts
+- Follow/unfollow users
 - Real-time feed updates
 - Responsive design
 
 ## Tech Stack
-
-- **Frontend:** HTML, CSS, JavaScript, React
-- **Backend:** Node.js, Express
+- **Frontend:** Vite, React, TypeScript
+- **Backend:** Node.js, Express, Mongoose, TypeScript
 - **Database:** MongoDB
-- **Authentication:** JWT
 
 ## Getting Started
 
-1. Clone the repository:
-  ```bash
-  git clone https://github.com/devanshp1/animalgram.git
-  ```
-2. Install dependencies:
-  ```bash
-  cd animalgram
-  npm install
-  ```
-3. Start the development server:
-  ```bash
-  npm start
-  ```
+### 1. Install Dependencies
+```sh
+cd client
+pnpm install
 
-## Contributing
+cd ../server
+pnpm install
+```
 
-Contributions are welcome! Please open issues or submit pull requests.
+### 2. Set Up Environment Variables
+- In `client/.env` and `server/.env`, add your required variables (e.g., MongoDB URI, API endpoints).
 
-## License
+### 3. Start the Backend
+```sh
+cd server
+pnpm run dev
+```
 
-This project is licensed under the MIT License.
+### 4. Start the Frontend
+```sh
+cd client
+pnpm run dev
+```
+
+### 5. Access the App
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3000
