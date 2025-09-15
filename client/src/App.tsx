@@ -1,4 +1,5 @@
 import {Routes, Route} from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
 
 import './globals.css';
 import AuthLayout from './_auth/AuthLayout';
@@ -10,6 +11,7 @@ import Home from './_root/pages/Home';
 const App = () => {
     return (
         <main className="flex w-full h-screen">
+            <Toaster />
             <Routes>
                 {/* Public Routes */}
                 <Route element={<AuthLayout />}>
@@ -23,11 +25,6 @@ const App = () => {
             </Routes>
         </main>
     )
-    return (
-        <h1 className="flex bg-blue-500 text-red-400">
-            App
-        </h1>
-    );
 };
 
 export default App;

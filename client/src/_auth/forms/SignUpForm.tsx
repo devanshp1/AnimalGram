@@ -14,8 +14,11 @@ import {
 import { Input } from "@/components/ui/input"
 import { SignUpValidationSchema } from "../../lib/validation";
 import { useSignUp } from "@/hooks/useSignUp";
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 const SignUpForm = () => {
+    const navigate = useNavigate();
     const form = useForm<z.infer<typeof SignUpValidationSchema>>({
         resolver: zodResolver(SignUpValidationSchema),
         defaultValues: {
@@ -30,12 +33,11 @@ const SignUpForm = () => {
 
     const onSubmit = async (data: z.infer<typeof SignUpValidationSchema>) => {
         try {
-            const result = await signUp(data);
-            console.log("User created:", result);
-            // show toast, navigate, etc.
+            await signUp(data);
+            toast.success('User created successfully!');
+            setTimeout(() => navigate('/sign-in'), 1200);
         } catch (error: any) {
-            console.error("Signup failed:", error.message);
-            // optional: setError or showToast
+            toast.error(error?.response?.data?.message || error.message || 'Signup failed');
         }
     };
 
@@ -45,7 +47,7 @@ const SignUpForm = () => {
                 <FormField
                     control={form.control}
                     name="name"
-                    render={({ field }) => (
+                    render={({ field }: { field: any }) => (
                         <FormItem>
                             <FormLabel>Name</FormLabel>
                             <FormControl>
@@ -58,7 +60,7 @@ const SignUpForm = () => {
                 <FormField
                     control={form.control}
                     name="username"
-                    render={({ field }) => (
+                    render={({ field }: { field: any }) => (
                         <FormItem>
                             <FormLabel>Username</FormLabel>
                             <FormControl>
@@ -71,7 +73,7 @@ const SignUpForm = () => {
                 <FormField
                     control={form.control}
                     name="email"
-                    render={({ field }) => (
+                    render={({ field }: { field: any }) => (
                         <FormItem>
                             <FormLabel>Email</FormLabel>
                             <FormControl>
@@ -84,7 +86,7 @@ const SignUpForm = () => {
                 <FormField
                     control={form.control}
                     name="password"
-                    render={({ field }) => (
+                    render={({ field }: { field: any }) => (
                         <FormItem>
                             <FormLabel>Password</FormLabel>
                             <FormControl>
