@@ -1,34 +1,28 @@
-import React, { ReactNode } from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
+import SideMenu from '@/components/ui/SideMenu';
 
-import { Outlet } from 'react-router-dom'
-import Header from '@/components/ui/Header'
-import Footer from '@/components/ui/Footer'
-import SideMenu from '@/components/ui/SideMenu'
+const RootLayout: React.FC = () => {
+  return (
+    <div className="flex flex-col min-h-screen w-full bg-background text-foreground">
+      <Header />
 
-interface RootLayoutProps {
-    children: ReactNode
-}
+      <div className="flex flex-1">
+        <SideMenu />
 
-export const metadata = {
-    title: 'AnimalGram',
-    description: 'MERN Blogging Platform for Animals',
-}
+        <main
+          className="flex-1 px-4 py-6 md:px-6 overflow-y-auto"
+          role="main"
+        >
+          <Outlet />
+        </main>
+      </div>
 
-const RootLayout: React.FC<RootLayoutProps> = () => {
-    return (
-        <div className="flex flex-col min-h-screen">
-            <Header />
+      <Footer />
+    </div>
+  );
+};
 
-            <div className="flex flex-1">
-                <SideMenu />
-                <main className="flex-1 p-4 overflow-auto">
-                    <Outlet />
-                </main>
-            </div>
-
-            <Footer />
-        </div>
-    )
-}
-
-export default RootLayout
+export default RootLayout;
